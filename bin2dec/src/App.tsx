@@ -1,9 +1,10 @@
 import React from 'react';
+import Conversor from './components/Conversor'
 
 function App() {
   return (    
     <div>
-      <h1>Clean project</h1>
+      <Conversor />
     </div>
   );
 }
