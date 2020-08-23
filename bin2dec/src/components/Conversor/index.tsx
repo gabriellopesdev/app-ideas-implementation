@@ -24,8 +24,16 @@ function Conversor() {
            <input 
             type="text" 
             name="binaryInput" 
+            value={binaryValue}
+            pattern="[0-1]*"
             onChange={(e) => {
-                setBinaryValue(e.target.value)
+                if (e.target.validity.valid) {
+                    setBinaryValue(e.target.value) 
+                }  
+                else {
+                    return
+                }
+                
             }}></input> <br/>
            <span>{ decimalValue }</span>
            
