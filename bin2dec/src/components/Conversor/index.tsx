@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ConvertBin2Dec from '../../services/ConvertBin2Dec'
 
-
+import './index.css'
 
 function Conversor() {
 
@@ -14,12 +14,12 @@ function Conversor() {
             setDecimalValue(String(convertedValue))      
         }
         else {
-            setDecimalValue('Has no value to convert!') 
+            setDecimalValue('No value to convert!') 
         }
         
     }, [binaryValue])
     return (
-        <div>
+        <div className="container">
            <h2>Enter binary value for conversion</h2> 
            <input 
             type="text" 
