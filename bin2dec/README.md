@@ -1,5 +1,7 @@
 # Bin2Dec
 
+You can see my deploy [here](https://app-ideas-implementation-bin2dec.vercel.app/)
+
 **Tier:** 1-Beginner
 
 Binary is the number system all digital computers are based on.
