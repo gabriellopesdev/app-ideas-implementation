@@ -1,10 +1,8 @@
 import React from 'react'
-
+import BorderPreview from './components/borderPreview'
 function App() {
   return (
-    <div>
-      <h1>Empty project</h1>
-    </div>
+    <BorderPreview />
   )
 }
 
