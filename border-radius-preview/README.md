@@ -1,5 +1,7 @@
 # Border-radius Previewer
 
+You can see my deploy [here](https://app-ideas-implementation-border-radius-preview.vercel.app/)
+
 **Tier:** 1-Beginner
 
 The border-radius property can have multiple values changed. Preview how the shape looks while changing these values.
