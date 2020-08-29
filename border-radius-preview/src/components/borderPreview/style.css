@@ -2,4 +2,46 @@
     background-color: #1D1475;
     width: 200px;
     height: 200px;
+
+}
+
+.container {
+    border: #6666 dashed;
+}
+
+.line {
+    align-content: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.line input {
+    height: 30px;    
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 10px;
+}
+
+.footer {
+    border: #6666 solid;
+    padding: 10px;
+}
+
+.content {
+    margin-top: -100px;
+}
+
+.iconCopy {
+    margin-left: 10px;
+    background-color:#FFFFFF;
+    color:#000000;
+    text-decoration:none
+}
+
+.iconCopy:hover {
+    cursor: pointer;
 }
