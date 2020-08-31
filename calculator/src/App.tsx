@@ -1,9 +1,10 @@
 import React from 'react';
+import Calculator from './components/calculator'
 
 function App() {
   return (
    <div>
-     <h1>Empty project</h1>
+     <Calculator />
    </div>
   );
 }
