@@ -1,0 +1,43 @@
+
+.leftContent {
+    display: grid;
+    grid-template-columns: 3fr  1fr;
+    margin-top: 2px;
+}
+
+.display {
+    width: 100%;
+}
+
+.rigthContent {
+    display: flex;
+    flex-direction: column;
+    margin-left: 4px;
+}
+
+.headButtons {
+    display: grid;
+    grid-template-columns: repeat(4, 25px);    
+    grid-column-gap: 30px; 
+}
+.display input{
+    margin-bottom: 5px;
+    width: 215px;
+}
+
+.headButtons button,
+.numbersContainer button,
+.rigthContent button {
+    width: 50px;
+}
+
+.rigthContent button:not(:first-child) {
+    margin-top: 2px;
+}
+
+.numbersContainer {
+    display: grid;
+    grid-column-gap: 25px;
+    grid-row-gap: 2px;
+    grid-template-columns: repeat(3, 30px);
+}

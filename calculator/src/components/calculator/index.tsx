@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import {addValue, subValue, divValue, multiplyValue} from '../../services/calculator'
 
+import './style.css'
+
 function Calculator() {
     let result = 0
 
@@ -8,7 +10,7 @@ function Calculator() {
     const [operation, setOperation] = useState('')
     const [editingValue, setEditingValue] = useState('')
 
-    const numbers = ["9", "8", "7", "6", "5", "4", "3",  "2", "1", "0", "."]
+    const numbers = [ "7", "8", "9",  "4", "5", "6",  "1", "2", "3", "0", "."]
 
     function calculate() {
         switch (operation) {
@@ -53,42 +55,67 @@ function Calculator() {
         setEditingValue(editingValue + value)
     }
     return (
-        <div>
-            <input value={editingValue} readOnly type="text"/>  
-            <button onClick={clear}>C</button>    
-            <button onClick={clearAll}>CA</button>                         
-            {   
-                numbers.map( (numberValue: string) => {
-                return (
-                        <button 
-                        value={numberValue} 
+        <div className="container">
+
+            <div className="display">
+                    <input value={editingValue} readOnly type="text"/>    
+            </div>
+
+            <div className="headButtons">               
+                   
+                <button onClick={clear}>C</button>     
+                
+                <button onClick={clearAll}>CA</button>      
+            
+                <button>+/-</button>    
+            
+                <button 
+                    onClick={(e) => {
+                        handleOperation("/")
+                    }}>/
+                </button>    
+                     
+                    
+            </div> 
+            <div className="leftContent">
+                
+                <div className="numbersContainer">
+                {   
+                        numbers.map( (numberValue: string) => {
+                        return (
+                                <div>
+                                    <button 
+                                    value={numberValue} 
+                                    onClick={(e) => {
+                                                handleEditingValue(e.currentTarget.value)
+                                            }} >
+                                    {numberValue}            
+                                    </button>    
+                                </div>
+                                
+                            )
+                        })
+                    }
+                </div>     
+            
+                <div className="rigthContent">
+                    <button 
                         onClick={(e) => {
-                                    handleEditingValue(e.currentTarget.value)
-                                }} >
-                        {numberValue}            
-                        </button>
-                    )
-                })
-            }
+                            handleOperation("+")
+                        }}>+</button>
+                    <button 
+                        onClick={(e) => {
+                            handleOperation("-")
+                        }}>-</button>
+                    
+                    <button
+                        onClick={(e) => {
+                            handleOperation("*")
+                        }}>x</button>
 
-            <button 
-                onClick={(e) => {
-                    handleOperation("+")
-                }}>+</button>
-            <button 
-                onClick={(e) => {
-                    handleOperation("-")
-                }}>-</button>
-            <button 
-                onClick={(e) => {
-                    handleOperation("/")
-                }}>/</button>
-            <button
-                onClick={(e) => {
-                    handleOperation("*")
-                }}>x</button>
-
-            <button onClick={calculate}>=</button>
+                    <button onClick={calculate}>=</button>
+                </div> 
+            </div>
             <span>{ currentValue }</span>
         </div>
     )
