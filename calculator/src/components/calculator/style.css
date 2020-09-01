@@ -29,8 +29,10 @@
 }
 
 .display span {
+    margin-bottom: 10px;
+    overflow: hidden;
     text-align: right;
-    margin: 10px;
+    max-width: 215px;
 }
 
 .headButtons button,

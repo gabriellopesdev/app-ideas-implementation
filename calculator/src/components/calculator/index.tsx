@@ -28,9 +28,10 @@ function Calculator() {
                 result = multiplyValue(currentValue, editingValue)            
                 break
         }
-        setCurrentValue(String(result)); 
+        const roundedResult = result.toFixed(2)        
+        setCurrentValue(String(roundedResult)); 
         setEditingValue('')
-        setHistory(currentValue + ' ' + operation + ' ' + editingValue + ' = ' + result)
+        setHistory(currentValue + ' ' + operation + ' ' + editingValue + ' = ' + roundedResult)
     }
 
     function clear() {
