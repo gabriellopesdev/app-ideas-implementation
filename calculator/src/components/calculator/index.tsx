@@ -5,7 +5,7 @@ import './style.css'
 
 function Calculator() {
     let result = 0
-
+    let roundedResult = ''
     const [currentValue, setCurrentValue] = useState('')
     const [operation, setOperation] = useState('')
     const [editingValue, setEditingValue] = useState('')
@@ -14,6 +14,7 @@ function Calculator() {
     const numbers = [ "7", "8", "9",  "4", "5", "6",  "1", "2", "3", "0", "."]
 
     function calculate() {
+
         switch (operation) {
             case '+': 
                 result = addValue(currentValue, editingValue)               
@@ -28,7 +29,14 @@ function Calculator() {
                 result = multiplyValue(currentValue, editingValue)            
                 break
         }
-        const roundedResult = result.toFixed(2)        
+
+        if (result % 1 !== 0) {
+            roundedResult = result.toFixed(2)  
+        }
+        else {
+            roundedResult = String(result) 
+        }
+              
         setCurrentValue(String(roundedResult)); 
         setEditingValue('')
         setHistory(currentValue + ' ' + operation + ' ' + editingValue + ' = ' + roundedResult)
@@ -82,13 +90,14 @@ function Calculator() {
 
             <div className="headButtons">               
                    
-                <button onClick={clear}>C</button>     
+                <button className="button buttonClear" onClick={clear}>C</button>     
                 
-                <button onClick={clearAll}>CA</button>      
+                <button className="button buttonClear" onClick={clearAll}>CA</button>      
             
-                <button onClick={changeSignal}>+/-</button>    
+                <button className="button buttonOperator" onClick={changeSignal}>+/-</button>    
             
                 <button 
+                    className="button buttonOperator"
                     onClick={(e) => {
                         handleOperation("/")
                     }}>/
@@ -102,7 +111,10 @@ function Calculator() {
                         return (
                                 <div>
                                     <button 
-                                    value={numberValue} 
+                                    value={numberValue}                                     
+                                    className={numberValue === '.' ? 
+                                               "button buttonValue dotButton" :  
+                                               "button buttonValue" }                                   
                                     onClick={(e) => {
                                                 handleEditingValue(e.currentTarget.value)
                                             }} >
@@ -116,20 +128,25 @@ function Calculator() {
             
                 <div className="rigthContent">
                     <button 
+                        className="button buttonOperator"
                         onClick={(e) => {
                             handleOperation("+")
                         }}>+</button>
                     <button 
+                        className="button buttonOperator"
                         onClick={(e) => {
                             handleOperation("-")
                         }}>-</button>
                     
                     <button
+                        className="button buttonOperator"
                         onClick={(e) => {
                             handleOperation("*")
                         }}>x</button>
 
-                    <button onClick={calculate}>=</button>
+                    <button 
+                        className="button buttonOperator"
+                        onClick={calculate}>=</button>
                 </div> 
             </div>
            

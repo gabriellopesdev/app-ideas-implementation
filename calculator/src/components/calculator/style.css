@@ -1,8 +1,7 @@
 
 .leftContent {
     display: grid;
-    grid-template-columns: 3fr  1fr;
-    margin-top: 2px;
+    grid-template-columns: 3fr  1fr;     
 }
 
 .display {
@@ -13,19 +12,20 @@
 
 .rigthContent {
     display: flex;
-    flex-direction: column;
-    margin-left: 4px;
+    flex-direction: column;    
 }
 
 .headButtons {
     display: grid;
     grid-template-columns: repeat(4, 25px);    
-    grid-column-gap: 30px; 
+    grid-column-gap: 25px; 
 }
-.display input{
-    margin-bottom: 5px;
+.display input {    
     text-align: right;
-    width: 215px;
+    width: 200px;
+    padding: 10px;
+    border: solid 1px #969ea5;
+    color: #969ea5;
 }
 
 .display span {
@@ -33,6 +33,7 @@
     overflow: hidden;
     text-align: right;
     max-width: 215px;
+    color: #969ea5;
 }
 
 .headButtons button,
@@ -41,13 +42,36 @@
     width: 50px;
 }
 
-.rigthContent button:not(:first-child) {
-    margin-top: 2px;
+.dotButton {
+    width: 100px !important;
 }
 
 .numbersContainer {
     display: grid;
-    grid-column-gap: 25px;
-    grid-row-gap: 2px;
+    grid-column-gap: 20px;    
     grid-template-columns: repeat(3, 30px);
+}
+
+.button {
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    height: 35px;
+    transition: opacity .3s;
+}
+
+.buttonClear {
+    background-color: #f5b362;
+}
+
+.buttonOperator {
+    background-color: #969ea5;
+}
+
+.buttonValue {
+    background-color: #191a1c;    
+}
+
+.button:hover {
+    opacity: .5;
 }
