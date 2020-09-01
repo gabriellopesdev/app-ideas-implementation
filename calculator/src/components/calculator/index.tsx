@@ -92,7 +92,7 @@ function Calculator() {
                    
                 <button className="button buttonClear" onClick={clear}>C</button>     
                 
-                <button className="button buttonClear" onClick={clearAll}>CA</button>      
+                <button className="button buttonClear" onClick={clearAll}>AC</button>      
             
                 <button className="button buttonOperator" onClick={changeSignal}>+/-</button>    
             
