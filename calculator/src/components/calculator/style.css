@@ -6,6 +6,8 @@
 }
 
 .display {
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
@@ -22,7 +24,13 @@
 }
 .display input{
     margin-bottom: 5px;
+    text-align: right;
     width: 215px;
+}
+
+.display span {
+    text-align: right;
+    margin: 10px;
 }
 
 .headButtons button,

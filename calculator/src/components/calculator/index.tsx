@@ -9,6 +9,7 @@ function Calculator() {
     const [currentValue, setCurrentValue] = useState('')
     const [operation, setOperation] = useState('')
     const [editingValue, setEditingValue] = useState('')
+    const [history, setHistory] = useState('0')
 
     const numbers = [ "7", "8", "9",  "4", "5", "6",  "1", "2", "3", "0", "."]
 
@@ -29,6 +30,7 @@ function Calculator() {
         }
         setCurrentValue(String(result)); 
         setEditingValue('')
+        setHistory(currentValue + ' ' + operation + ' ' + editingValue + ' = ' + result)
     }
 
     function clear() {
@@ -38,6 +40,7 @@ function Calculator() {
     function clearAll() {
         setEditingValue('')
         setCurrentValue('')
+        setHistory('0')
     }
 
     function handleOperation(value: string) {
@@ -45,7 +48,15 @@ function Calculator() {
         if (!currentValue) {
             setCurrentValue(editingValue)   
         }        
+
         setEditingValue('')
+
+        if (!currentValue) {
+            setHistory(editingValue + ' ' + value)
+        }
+        else {
+            setHistory(currentValue + ' ' + value + ' ' + editingValue)
+        }
     }
 
     function handleEditingValue(value: string) {
@@ -54,11 +65,18 @@ function Calculator() {
         }
         setEditingValue(editingValue + value)
     }
+
+    function changeSignal() {
+        const newValue = Number(editingValue) * -1
+        setEditingValue(String(newValue))
+    }
+
     return (
         <div className="container">
 
             <div className="display">
-                    <input value={editingValue} readOnly type="text"/>    
+                <span className="history">{ history }</span> 
+                <input value={editingValue} readOnly type="text"/>    
             </div>
 
             <div className="headButtons">               
@@ -67,20 +85,18 @@ function Calculator() {
                 
                 <button onClick={clearAll}>CA</button>      
             
-                <button>+/-</button>    
+                <button onClick={changeSignal}>+/-</button>    
             
                 <button 
                     onClick={(e) => {
                         handleOperation("/")
                     }}>/
-                </button>    
-                     
-                    
+                </button> 
             </div> 
             <div className="leftContent">
                 
                 <div className="numbersContainer">
-                {   
+                    {   
                         numbers.map( (numberValue: string) => {
                         return (
                                 <div>
@@ -91,8 +107,7 @@ function Calculator() {
                                             }} >
                                     {numberValue}            
                                     </button>    
-                                </div>
-                                
+                                </div>                                
                             )
                         })
                     }
@@ -116,7 +131,7 @@ function Calculator() {
                     <button onClick={calculate}>=</button>
                 </div> 
             </div>
-            <span>{ currentValue }</span>
+           
         </div>
     )
 }
