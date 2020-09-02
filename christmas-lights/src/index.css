@@ -1,0 +1,21 @@
+* {
+    font-family: Ubuntu;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    height: 100vh;
+  }
+  
+  body {
+    background: #fafafa;
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
