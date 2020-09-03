@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Light from './components/light'
 import './App.css'
 
 function App() {
-  const bulbsList = [1-4]
+  const [bulbsList, setBulbsLit] = useState([1, 2, 3, 4])
+  const [bulbsQuantity, setBulbsQuantity] = useState(4)
   const colors = ['red', 'green', 'blue', 'yellow']
   const [lightsOn, setLightsOn] = useState(true)
   const [color1, setColor1] = useState(colors[1])
@@ -11,23 +12,39 @@ function App() {
   function handleLightsOn() {
     setLightsOn(!lightsOn)
   }
+  function handleNewBulbList(newBulbQuantity: number) {
+    setBulbsQuantity(newBulbQuantity)
+    let tempList = []
+    for (let i = 1; i <= newBulbQuantity; i++) {
+      tempList.push(i)
+   }
+   setBulbsLit(tempList)
+  }
+
+  function createBulbs() {
+
+    if (bulbsList.length > 7) {
+      handleNewBulbList(7)
+    }
+    return bulbsList.map((item: number) => {
+      const color = item % 2 ? color1 : color2
+      const last = (bulbsList.length === item)
+      return (   
+        <div key={item} className="item">
+          <Light 
+            color= {color}
+            turnOn={lightsOn} 
+            last={last}
+          />              
+        </div>  
+      )
+    }) 
+  }
+
   return (
     <div className="container">
       { 
-        bulbsList.map((item: number) => {
-          const color = item % 2 ? color1 : color2
-          const last = (bulbsList.length === item)
-          return (   
-            <div className="item">
-              <Light 
-                color= {color}
-                turnOn={lightsOn} 
-                last={last}
-              />              
-            </div>       
-           
-          )
-        }) 
+        createBulbs()
       }   
       <button onClick={handleLightsOn}>Interruptor</button>
       <select 
@@ -57,7 +74,9 @@ function App() {
           }) 
         }               
       </select>
-                        
+      <input type="text" value={bulbsQuantity} onChange={(e) => {
+        handleNewBulbList(Number(e.currentTarget.value))
+      }}/>                  
     </div>
   );
 }

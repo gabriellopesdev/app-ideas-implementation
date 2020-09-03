@@ -4,6 +4,7 @@ import './style.css'
 interface LightProps{
     turnOn: boolean,
     color: string,
+    intensity?: number,
     last?: boolean
 }
 
