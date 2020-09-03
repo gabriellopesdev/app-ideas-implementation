@@ -12,7 +12,19 @@
   body {
     background: #fafafa;
   }
-  
+  :root {
+    --red-on: rgb(191, 58, 43);
+    --red-off: rgb(191, 58, 43, 0.5);
+
+    --blue-on:rgb(0, 58, 247);
+    --blue-off: rgb(0, 58, 247, 0.5);
+
+    --green-on: rgb(6, 170, 6);
+    --green-off: rgb(6, 170, 6, 0.5);
+
+    --yellow-on: rgb(255, 252, 77);
+    --yellow-off: rgb(255, 252, 77, 0.5);
+  }
   #root {
     display: flex;
     flex-direction: column;
