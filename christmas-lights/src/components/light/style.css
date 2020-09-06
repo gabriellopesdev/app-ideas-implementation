@@ -3,7 +3,7 @@
     display: flex;
     margin: 1rem;
     border-radius: 50%;
-    height: 80px;
+    height: 80px;    
     width: 50px;
     position: relative;
     transition: 1s all ease;
@@ -47,7 +47,7 @@
   }
 
   .red-on {
-    animation: blink-1 1s infinite;
+    animation: blink-1 var(--animation-intensity) infinite alternate-reverse;
   }
 
   .blue {    
@@ -55,7 +55,7 @@
   }
 
   .blue-on {
-    animation: blink-2 1s infinite;
+    animation: blink-2 var(--animation-intensity) infinite alternate-reverse;
   }
 
   .green {    
@@ -63,7 +63,7 @@
   }
 
   .green-on {
-    animation: blink-3 1s infinite;
+    animation: blink-3 var(--animation-intensity) infinite alternate-reverse;
   }
 
   .yellow {    
@@ -71,7 +71,7 @@
   }
 
   .yellow-on {
-    animation: blink-4 1s infinite;
+    animation: blink-4 var(--animation-intensity) infinite alternate-reverse;
   }
 
   @keyframes blink-1 {

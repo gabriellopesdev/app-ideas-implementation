@@ -24,6 +24,8 @@
 
     --yellow-on: rgb(255, 252, 77);
     --yellow-off: rgb(255, 252, 77, 0.5);
+
+    --animation-intensity: 1s;
   }
   #root {
     display: flex;

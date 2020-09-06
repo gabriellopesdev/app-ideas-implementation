@@ -8,9 +8,10 @@ interface LightProps{
     last?: boolean
 }
 
-const Light: React.FC<LightProps> = (props) => {
+const Light: React.FC<LightProps> = (props) => {    
     return (
-        <div className={ 'bulb ' + 
+        <div            
+            className={ 'bulb ' + 
                         (props.last ? ' noRope ' : '') +
                         (props.turnOn ?  
                         props.color +' ' +props.color +'-on' : 

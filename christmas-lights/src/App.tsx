@@ -5,6 +5,7 @@ import './App.css'
 function App() {
   const [bulbsList, setBulbsLit] = useState([1, 2, 3, 4])
   const [bulbsQuantity, setBulbsQuantity] = useState(4)
+  const [blinkIntensity, setBlinkIntensity] = useState('1')
   const colors = ['red', 'green', 'blue', 'yellow']
   const [lightsOn, setLightsOn] = useState(true)
   const [color1, setColor1] = useState(colors[1])
@@ -19,6 +20,11 @@ function App() {
       tempList.push(i)
    }
    setBulbsLit(tempList)
+  }
+
+  function handleIntensity(newItensity: string) {    
+    document.documentElement.style.setProperty('--animation-intensity', newItensity + 's');
+    setBlinkIntensity(newItensity) 
   }
 
   function createBulbs() {
@@ -76,7 +82,10 @@ function App() {
       </select>
       <input type="text" value={bulbsQuantity} onChange={(e) => {
         handleNewBulbList(Number(e.currentTarget.value))
-      }}/>                  
+      }}/>  
+      <input type="text" value={blinkIntensity} onChange={(e) => {
+        handleIntensity(e.currentTarget.value)
+      }}/>                
     </div>
   );
 }
