@@ -2,7 +2,7 @@
 
 **Tier:** 1-Beginner
 
-You can see the deploy [here](app-ideas-implementation-christmas-lights.netlify.app)
+You can see the deploy [here](https://app-ideas-implementation-christmas-lights.netlify.app)
 
 The ChristmasLights application relies on your development talents to create
 a mesmerizing light display. Your task is to draw seven colored circles
