@@ -22,9 +22,9 @@ function App() {
    setBulbsLit(tempList)
   }
 
-  function handleIntensity(newItensity: string) {    
+  function handleIntensity(newItensity: string) {      
     document.documentElement.style.setProperty('--animation-intensity', newItensity + 's');
-    setBlinkIntensity(newItensity) 
+    setBlinkIntensity(newItensity)
   }
 
   function createBulbs() {
@@ -49,43 +49,101 @@ function App() {
 
   return (
     <div className="container">
-      { 
-        createBulbs()
-      }   
-      <button onClick={handleLightsOn}>Interruptor</button>
-      <select 
-        value={color1} 
-        onChange={(e) => {
-          setColor1(e.target.value)
-        }}   
-      >
-        <option value="" disabled hidden>Selecione uma opção</option>
+      <div className="row">
         { 
-          colors.map((item: string) => {
-            return <option key={item} value={item}>{item}</option>
-          }) 
-        }         
-      </select>
+          createBulbs()
+        }   
+      </div>
+      <div className="row controllers">
+       
+        <button
+          
+          className="button button-interruptor"
+          onClick={handleLightsOn}>
+          {lightsOn ? 'Off' : 'On'}
+        </button>
+        <div className="component">
+          <div>
+            <label className="label" htmlFor="color1">Color 1</label>  
+          </div>
+          <div>
+            <select 
+              name="color1"
+              className="select"
+              value={color1} 
+              onChange={(e) => {
+                setColor1(e.target.value)
+              }}   
+              >   
+              <option value="" disabled hidden>Selecione uma opção</option>
+              { 
+                colors.map((item: string) => {
+                  return <option key={item} value={item}>{item}</option>
+                }) 
+              }         
+            </select>  
+          </div>
+          
+        </div>
 
-      <select 
-        value={color2} 
-        onChange={(e) => {
-          setColor2(e.target.value)
-        }}   
-      >
-        <option value="" disabled hidden>Selecione uma opção</option>
-        { 
-          colors.map((item: string) => {
-            return <option key={item} value={item}>{item}</option>
-          }) 
-        }               
-      </select>
-      <input type="text" value={bulbsQuantity} onChange={(e) => {
-        handleNewBulbList(Number(e.currentTarget.value))
-      }}/>  
-      <input type="text" value={blinkIntensity} onChange={(e) => {
-        handleIntensity(e.currentTarget.value)
-      }}/>                
+        <div className="component">
+          <div>
+            <label className="label" htmlFor="color2">Color 2</label> 
+          </div>
+          <div>
+            <select 
+            name="color2"
+            className="select"
+            value={color2} 
+            onChange={(e) => {
+              setColor2(e.target.value)
+            }}   
+             >
+            <option value="" disabled hidden>Selecione uma opção</option>
+            { 
+              colors.map((item: string) => {
+                return <option key={item} value={item}>{item}</option>
+              }) 
+            }               
+          </select>
+          </div>
+        </div>   
+        <div className="component">
+          <div>
+            <label className="label" htmlFor="lightsQtd">Light Qtd</label> 
+          </div>
+          <div>
+            <input
+              name="lightsQtd"
+              className="input" 
+              type="text" 
+              value={bulbsQuantity} 
+              onChange={(e) => {
+              handleNewBulbList(Number(e.currentTarget.value))
+            }}/>  
+          </div>
+
+        </div>       
+        <div className="component">
+          <div>
+            <label 
+              className="label" 
+              htmlFor="intensity">Intensity
+            </label> 
+          </div>
+          <div>
+            <input 
+              name="intensity"
+              className="input" 
+              type="text" 
+              value={blinkIntensity} 
+              onChange={(e) => {
+              handleIntensity(e.currentTarget.value)
+            }}/>  
+          </div>
+        </div>
+         
+      </div>       
     </div>
   );
 }
