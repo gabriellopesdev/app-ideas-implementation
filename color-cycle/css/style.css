@@ -25,6 +25,22 @@
  .controllers {
     align-items: center;
     display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+ }
+
+ .colorScheme input {
+    width: 50px;
+    text-align: center;
+ }
+
+ .modifiers {
+     margin: 10px;
+ }
+
+ .modifiers input{
+     width: 75px;
+     text-align: center;
  }
 
  .circle {
@@ -35,6 +51,21 @@
     height: 200px;
     width: 200px;
  }
+
+ #btnControll {
+     margin-bottom: 20px;
+     cursor: pointer;
+     color: #fff;
+     background-color: #969ea5;
+     border: none;     
+     padding: 20px;
+     width: 150px;
+     transition: opacity .3s;
+ }
+
+ #btnControll:hover {
+    opacity: .5;
+}
 
  :root {
     --initial-color: #000;

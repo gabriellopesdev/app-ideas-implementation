@@ -10,9 +10,17 @@
     <div class="container">
         <div class="circle"></div>
         <div class="controllers">
-            <button id="btnControll" onclick="startOrStop()">Start</button>
-            <input type="text" id="incrementValue">
-            <input type="text" id="time">
+            <div>
+                <button id="btnControll" onclick="startOrStop()">Start</button>    
+            </div>
+            <div>
+                <label for="incrementValue">Inc. value</label>
+                <label for="time">Timelapse</label>
+            </div>
+            <div class="modifiers">
+                <input type="text" name="incrementValue" id="incrementValue">
+                <input type="text" name="time" id="time">    
+            </div>            
             <div class="colorScheme">
                 <input 
                     maxlength="2"
