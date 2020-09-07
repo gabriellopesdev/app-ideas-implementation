@@ -1,5 +1,7 @@
 # ColorCycle
 
+You can see my deploy [here](https://codepen.io/gabsloops/pen/abNqbBz)
+
 **Tier:** 1-Beginner
 
 The use of color plays a major role in an applications User Interface and
