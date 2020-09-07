@@ -1,0 +1,41 @@
+* {
+    font-family: Ubuntu;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+  
+  html, body, #root {
+    height: 100vh;
+ }
+  
+  body {
+    background: #fafafa;
+ }
+
+ .container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+ }
+
+ .controllers {
+    align-items: center;
+    display: flex;
+ }
+
+ .circle {
+    align-items: center;
+    background-color: var(--initial-color);
+    border-radius: 50%;
+    display: flex;
+    height: 200px;
+    width: 200px;
+ }
+
+ :root {
+    --initial-color: #000;
+ }

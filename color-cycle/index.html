@@ -4,20 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Cycle</title>
-    <link href="./css/style.css" type="relstylesheet">
+    <link href="./css/style.css" rel="stylesheet">
 </head>
-<body>
-    <main class="container">
+<body onload="setInitialColor()">
+    <div class="container">
         <div class="circle"></div>
         <div class="controllers">
-            <button id="btnControll">Start</button>
+            <button id="btnControll" onclick="startOrStop()">Start</button>
+            <input type="text" id="incrementValue">
+            <input type="text" id="time">
             <div class="colorScheme">
-                <input type="text" id="red">
-                <input type="text" id="blue">
-                <input type="text" id="green">
+                <input 
+                    maxlength="2"
+                    type="text" 
+                    pattern="[a-fA-F\d]+" 
+                    title="Enter a valid HEX value"
+                    id="red">
+                <input 
+                    maxlength="2"
+                    type="text" 
+                    pattern="[a-fA-F\d]+" 
+                    title="Enter a valid HEX value"
+                    id="blue">
+                <input 
+                    maxlength="2"
+                    type="text" 
+                    pattern="[a-fA-F\d]+" 
+                    title="Enter a valid HEX value"
+                    id="green">
             </div>
         </div>
-    </main>    
+    </div>    
 </body>
-<script type="text/javasscript" src="./js/functions.js"></script>
+<script type="text/javascript" src="./js/functions.js"></script>
 </html>
